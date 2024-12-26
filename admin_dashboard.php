@@ -1,6 +1,7 @@
 <?php
 session_start();
 include './api/db.php';
+include './components/navbar.php';
 
 // Check if admin is logged in
 if ($_SESSION['role'] != 'admin') {
@@ -22,6 +23,7 @@ if ($_SESSION['role'] != 'admin') {
 <body class="bg-gray-100">
 
     <div class="max-w-7xl mx-auto p-6">
+        <?php renderNavbar() ?>
         <h1 class="text-3xl font-semibold mb-6">Admin Dashboard</h1>
 
         <!-- Add Train Form -->

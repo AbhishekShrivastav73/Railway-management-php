@@ -1,4 +1,7 @@
 <?php
+// Start the session
+session_start();
+
 // Include database connection
 include './api/db.php';
 
@@ -16,7 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Execute the query
     if (mysqli_query($con, $sql)) {
-        echo "<p class='text-green-500'>Signup successful!</p>";
+        // Store user details in the session
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        $_SESSION['role'] = 'user';
+
+        // Redirect to user dashboard
+        header("Location: user_dashboard.php");
+        exit();
     } else {
         echo "<p class='text-red-500'>Error: " . mysqli_error($con) . "</p>";
     }
@@ -54,6 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded mt-4 hover:bg-blue-600">Sign Up</button>
         </form>
+
+        <!-- Login link -->
+        <p class="mt-4 text-sm text-center text-gray-600">
+            Already have an account? 
+            <a href="login.php" class="text-blue-500 hover:underline">Log in</a>
+        </p>
     </div>
 
 </body>
