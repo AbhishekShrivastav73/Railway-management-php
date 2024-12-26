@@ -5,23 +5,38 @@ function renderNavbar() {
         session_start();
     }
 
-    // Navbar HTML structure
+    // Side navigation HTML structure
     echo '
-    <nav class="bg-blue-500 text-white p-4 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-lg font-bold">Railway Management</a>
-            <div class="flex items-center space-x-4">';
-    
+    <div class="flex">
+        <!-- Sidebar (Side Navigation) -->
+        <div class="w-full min-h-screen bg-green-400 text-white flex flex-col">
+            <div class="p-6 bg-green-600 text-center text-lg font-bold">
+                Railway Management
+            </div>
+
+            <div class="flex-grow">
+                <ul class="space-y-4 p-6">
+                    <li><a href="admin_dashboard.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Dashboard</a></li>
+  
+                    <li><a href="view_users.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">View Users</a></li>
+                    <li><a href="add_train.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Add Trains</a></li>
+                    <li><a href="all_trains.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">All Trains</a></li>
+                    <li><a href="settings.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Settings</a></li>
+                </ul>
+            </div>';
+
     // Dynamic content based on session
+    echo '<div class="p-6">
+            <div class="text-center">
+                <span class="block">';
+
     if (isset($_SESSION["role"]) && $_SESSION["role"] === "admin") {
-        echo '<span>Welcome, Admin</span>';
+        echo 'Welcome, Admin';
     } elseif (isset($_SESSION["username"])) {
-        echo '<span>Welcome, ' . htmlspecialchars($_SESSION["username"]) . '</span>';
-    } else {
-        echo '
-        <a href="login.php" class="hover:underline">Login</a>
-        <a href="signup.php" class="hover:underline">Signup</a>';
+        echo 'Welcome, ' . htmlspecialchars($_SESSION["username"]);
     }
+
+    echo '</span>';
 
     // Logout button for logged-in users
     if (isset($_SESSION["username"])) {
@@ -31,11 +46,22 @@ function renderNavbar() {
                 Logout
             </button>
         </form>';
+    } else {
+        // If user is not logged in, show login and signup links
+        echo '
+        <a href="login.php" class="hover:underline">Login</a>
+        <a href="signup.php" class="hover:underline">Signup</a>';
     }
 
-    echo '
-            </div>
+    echo '</div></div>
         </div>
-    </nav>';
+
+        <!-- Main Content Area -->
+        <div class="flex-1 p-6">
+            <!-- Your main content goes here -->
+        </div>
+    </div>';
 }
+
+// <li><a href="manage_trains.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Manage Trains</a></li>
 ?>
