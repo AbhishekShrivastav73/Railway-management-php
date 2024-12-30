@@ -5,7 +5,7 @@ function renderNavbar() {
         session_start();
     }
 
-    // Side navigation HTML structure
+    // Side navigation HTML structure with icons
     echo '
     <div class="flex">
         <!-- Sidebar (Side Navigation) -->
@@ -16,12 +16,13 @@ function renderNavbar() {
 
             <div class="flex-grow">
                 <ul class="space-y-4 p-6">
-                    <li><a href="admin_dashboard.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Dashboard</a></li>
-  
-                    <li><a href="view_users.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">View Users</a></li>
-                    <li><a href="add_train.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Add Trains</a></li>
-                    <li><a href="all_trains.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">All Trains</a></li>
-                    <li><a href="settings.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Settings</a></li>
+                    <li><a href="admin_dashboard.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-tachometer-alt mr-3"></i> Dashboard</a></li>
+                    <li><a href="view_users.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-users mr-3"></i> View Users</a></li>
+                    <li><a href="add_seats.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-users mr-3"></i> Add Seats</a></li>
+                    <li><a href="add_stations.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-users mr-3"></i> Add Stations</a></li>
+                    <li><a href="add_train.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-train mr-3"></i> Add Trains</a></li>
+                    <li><a href="all_trains.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-railroad-track mr-3"></i> All Trains</a></li>
+                    <li><a href="settings.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded flex items-center"><i class="fas fa-cogs mr-3"></i> Settings</a></li>
                 </ul>
             </div>';
 
@@ -62,6 +63,7 @@ function renderNavbar() {
         </div>
     </div>';
 }
-
-// <li><a href="manage_trains.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Manage Trains</a></li>
 ?>
+
+<!-- 
+ <li><a href="manage_trains.php" class="block text-white hover:bg-green-600 py-2 px-4 rounded">Manage Trains</a></li> -->

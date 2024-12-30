@@ -52,6 +52,8 @@ $result = mysqli_query($con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Trains</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@heroicons/react/solid" rel="stylesheet">
+
     <script>
         // JavaScript to automatically calculate the fare based on distance input
         function calculateFare() {
