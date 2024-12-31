@@ -48,7 +48,7 @@ Admins can update train schedules, manage routes, and keep station information u
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/railway-management-system.git
+   git clone https://github.com/AbhishekShrivastav73/Railway-management-php.git
    ```
 
 2. **Setup Database**:
